@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import './store';
+
+import STORE from './store';
 
 ReactDOM.render(
-    <App>
+    <App store={STORE}>
     </App>,
     document.getElementById('root'));

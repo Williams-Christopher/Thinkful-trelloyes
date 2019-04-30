@@ -4,7 +4,7 @@ import './List.css';
 import Card from './Card';
 
 function List(props) {
-    console.log(`props: ${JSON.stringify(props)}`);
+    //console.log(`props: ${JSON.stringify(props)}`);
 
     // Create an array of Card components
     let listCards = props.cards.map(card =>

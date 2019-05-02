@@ -5,7 +5,8 @@ import './Card.css';
 function Card(props) {
     console.log(props);
     return (
-        <div className='Card' key={props.key}>
+        // <div className='Card' key={props.key}>
+        <div className='Card'>
             <h3>{props.title}</h3>
             <p>{props.content}</p>
         </div>

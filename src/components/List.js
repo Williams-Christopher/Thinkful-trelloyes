@@ -18,6 +18,7 @@ function List(props) {
             </header>
             <div className='List-cards'>
                 {listCards}
+                <button type='submit' name='cardAdd' onClick={() => props.onAddCard(props.id)}>Add Random</button>
             </div>
         </section>
     );

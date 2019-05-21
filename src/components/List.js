@@ -8,7 +8,7 @@ function List(props) {
 
     // Create an array of Card components
     let listCards = props.cards.map(card =>
-        <Card id={card.id} title={card.title} content={card.content} />
+        <Card id={card.id} onDeleteCard={props.onDeleteCard} title={card.title} content={card.content} />
     );
     
     return (
@@ -18,7 +18,7 @@ function List(props) {
             </header>
             <div className='List-cards'>
                 {listCards}
-                <button type='submit' name='cardAdd' onClick={() => props.onAddCard(props.id)}>Add Random</button>
+                <button className='list-add-button' type='submit' name='cardAdd' onClick={() => props.onAddCard(props.id)}>Add Random</button>
             </div>
         </section>
     );

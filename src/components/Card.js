@@ -9,7 +9,7 @@ function Card(props) {
         <div className='Card'>
             <h3>{props.title}</h3>
             <p>{props.content}</p>
-            <button type='submit' name='cardDelete' onClick={() => props.onDeleteList(props.id)}>Delete</button>
+            <button type='submit' name='cardDelete' onClick={() => props.onDeleteCard(props.id)}>Delete</button>
         </div>
     )
 };

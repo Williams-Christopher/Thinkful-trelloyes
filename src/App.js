@@ -75,8 +75,9 @@ export default class App extends React.Component {
       return list;
     });
 
-    // Update the AllCards object
+    // Update the AllCards object with the new card
     let newCards = {...this.state.store.allCards, [newCard.id]: {'title': newCard.title, 'content': newCard.content}}
+    
     // Update the state
     this.setState({
       store: {
@@ -86,7 +87,7 @@ export default class App extends React.Component {
     });
   }
 
-  // Provided function fro generating reandom cards
+  // Provided function fro generating random cards
   newRandomCard = () => {
     const id = Math.random().toString(36).substring(2, 4)
       + Math.random().toString(36).substring(2, 4);
@@ -97,8 +98,17 @@ export default class App extends React.Component {
     }
   }
 
-  handleDeleteList = (id) => {
-    console.log('List delete clicked', id);
+  handleDeleteCard = (cardId) => {
+    console.log('List delete clicked', cardId);
+  }
+
+  // Provided function to remove a KVP from an object
+  omit(obj, keyToOmit) {
+    return Object.entries(obj).reduce(
+      (newObj, [key, value]) =>
+          key === keyToOmit ? newObj : {...newObj, [key]: value},
+      {}
+    );
   }
 
   render() {
@@ -114,7 +124,7 @@ export default class App extends React.Component {
               header={list.header}
               cards={list.cardIds.map(id => this.state.store.allCards[id])}
               onAddCard={this.handleAddCard}
-              onDeleteList={this.handleDeleteList}
+              onDeleteCard={this.handleDeleteCard}
             />
           ))}
         </div>

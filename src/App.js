@@ -65,10 +65,10 @@ export default class App extends React.Component {
     store: STORE,
   };
 
-  handleAddCard = (id) => {
-    console.log('Random card button clicked...', id);
-    let randomCard = this.newRandomCard();
-    console.log(randomCard);
+  handleAddCard = (listId) => {
+    console.log('Random card button clicked...', listId);
+    let newCard = this.newRandomCard();
+    //let newList = this.state.lists.
   }
 
   newRandomCard = () => {

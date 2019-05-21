@@ -66,11 +66,27 @@ export default class App extends React.Component {
   };
 
   handleAddCard = (listId) => {
-    console.log('Random card button clicked...', listId);
     let newCard = this.newRandomCard();
-    //let newList = this.state.lists.
+    // Add new card ID to the appropriate lists list of cards
+    let newLists = this.state.store.lists.map((list) => {
+      if(list.id === listId) {
+        list.cardIds.push(newCard.id)
+      }
+      return list;
+    });
+
+    // Update the AllCards object
+    let newCards = {...this.state.store.allCards, [newCard.id]: {'title': newCard.title, 'content': newCard.content}}
+    // Update the state
+    this.setState({
+      store: {
+        lists: newLists,
+        allCards: newCards,
+      },  
+    });
   }
 
+  // Provided function fro generating reandom cards
   newRandomCard = () => {
     const id = Math.random().toString(36).substring(2, 4)
       + Math.random().toString(36).substring(2, 4);
@@ -86,7 +102,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    //const { store } = this.props
     return (
       <main className='App'>
         <header className='App-header'>

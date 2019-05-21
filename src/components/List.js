@@ -8,7 +8,7 @@ function List(props) {
 
     // Create an array of Card components
     let listCards = props.cards.map(card =>
-        <Card key={card.key} title={card.title} content={card.content} />
+        <Card id={card.id} title={card.title} content={card.content} />
     );
     
     return (
